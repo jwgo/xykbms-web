@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xykbms-web"
+dynamic = ["version"]
+description = "Web-based configuration tool for xy_3dg12 (XYKBMS) ThinkPad keyboard controller boards"
+readme = "README.md"
+license = { text = "LGPL-2.1-or-later" }
+requires-python = ">=3.10"
+dependencies = ["hidapi>=0.14"]
+classifiers = [
+    "License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Hardware",
+]
+
+[project.scripts]
+xykbms-web = "xykbms.server:main"
+
+[tool.setuptools]
+packages = ["xykbms"]
+
+[tool.setuptools.dynamic]
+version = { attr = "xykbms.__version__" }
+
+[tool.setuptools.package-data]
+xykbms = ["static/*.html"]
