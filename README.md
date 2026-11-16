@@ -102,8 +102,10 @@ Then unplug and replug the keyboard.
 
 ## Status
 
-The config decoder was checked against configs read from a real X220 board (wired USB). The unit tests run
-the protocol, the write-safety check and the whole apply path against a simulated board:
+Tested on a ThinkPad X220 classic keyboard with a wired USB board (firmware `Dec 12 2025`) on macOS:
+reading the config, writing it, reconnecting after the board resets and reading it back all work, and
+the result matched byte for byte. The unit tests run the protocol, the write-safety check and the whole
+apply path against a simulated board:
 
 ```sh
 python3 -m unittest discover -s tests
